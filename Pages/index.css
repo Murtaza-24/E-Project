@@ -1,0 +1,1629 @@
+@import url('https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&family=Julius+Sans+One&family=Livvic:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+
+/* Global Reset and Box-Sizing */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root Variables for Reusability */
+
+
+:root {
+    --goldenColor: #e29d25;
+}
+
+/* Anchor Tag Styles */
+
+a {
+    color: white;
+    text-decoration: none;
+    font-family: 'julius sans one';
+    letter-spacing: 2px;
+}
+
+/* Logo Styles */
+
+.logoParent {
+    align-self: flex-start;
+}
+
+.logo {
+    font-family: "livvic";
+    font-size: 2.5rem;
+}
+
+/* Navigation Tabs Styling */
+
+.tabs {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Nav Items */
+
+.itm {
+    font-family: 'julius sans one';
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: rgb(219, 219, 219);
+    transition: all 0.3s ease;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Arrow Svg */
+
+#arrowItm {
+    position: relative;
+}
+
+/* Dropdown Menu Styling */
+
+.dropBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgb(17, 17, 17);
+    padding: 20px;
+    width: 200px;
+    position: absolute;
+    top: 25px;
+    right: 42%;
+    opacity: 0;
+    display: none;
+}
+
+.dropBox a {
+    color: rgb(212, 212, 212);
+    transition: .3s ease;
+    font-size: 1.2rem;
+}
+
+.dropBox a:hover {
+    color: white;
+}
+
+.dropBox.active {
+    display: flex;
+    animation: fadein .5s ease 1 forwards;
+    transition: .5s ease;
+
+}
+
+@keyframes fadein {
+    100% {
+        opacity: 1;
+        top: 175%;
+    }
+}
+
+@keyframes fadeout {
+    100% {
+        opacity: 0;
+        top: 25px;
+    }
+}
+
+.itmSvg {
+    transition: .5s ease;
+}
+
+.itmSvg.active {
+    transform: rotate(180deg);
+    transition: .5s ease;
+}
+
+/* Navigation Item Hover Effects */
+
+.itm::before {
+    position: absolute;
+    content: "";
+    height: 1.5px;
+    border-radius: 50px;
+    background-color: var(--goldenColor);
+    bottom: -5px;
+    left: -5px;
+    width: 110%;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+}
+
+.itm:hover::before {
+    transform: scaleX(1);
+
+}
+
+.itm:hover {
+    color: white;
+}
+
+/* Sticky Navigation Bar */
+
+nav {
+    background-color: black;
+    padding: 10px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navChild {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Body Styling */
+
+body {
+
+    background-color: rgba(241, 241, 241, 0.671);
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: julius sans one;
+    overflow: hidden;
+}
+
+/* Top Section Styling */
+
+.topPrnt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image img {
+    height: 500px;
+}
+
+.topTxt {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 98vh;
+    padding: 20px;
+}
+
+.firTxt {
+    font-size: 3rem;
+    font-family: julius sans one;
+    letter-spacing: 10px;
+    font-weight: bolder;
+
+}
+
+.secTxt {
+    color: var(--goldenColor);
+    font-size: 3rem;
+    font-family: livvic;
+    text-transform: uppercase;
+    border-right: 5px solid black;
+    padding-right: 5px;
+    animation: typing 2s 1s steps(40) backwards, cursor .5s step-end infinite alternate;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 590px;
+    letter-spacing: 5px;
+}
+
+/* Typing Animation */
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes cursor {
+    50% {
+        border-color: transparent;
+    }
+
+}
+
+@keyframes slideIn {
+    0% {}
+
+    50% {
+
+        opacity: 0;
+    }
+
+    9% {
+
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+/* Toast Notification Styling */
+
+#toastBox {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    overflow: hidden;
+    padding: 20px;
+    z-index: 2;
+}
+
+.fToast {
+    width: 300px;
+    height: 80px;
+    background-color: white;
+    font-weight: 500;
+    margin: 15px 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    font-family: julius sans one;
+    font-weight: bolder;
+    position: relative;
+    font-size: .9rem;
+    z-index: 2;
+    animation: moveLeft .75s cubic-bezier(0, 1.24, 0.99, 0.99) forwards;
+    transform: translatex(100%);
+}
+
+@keyframes moveLeft {
+    100% {
+        transform: translatex(0);
+    }
+}
+
+.fToast::after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    width: 100%;
+    background-color: red;
+    animation: fToastAni 3s linear forwards;
+}
+
+@keyframes fToastAni {
+    100% {
+        width: 0;
+    }
+}
+
+.fToast i {
+    margin: 0 20px;
+    font-size: 35px;
+}
+
+/* About Us Text Animation */
+
+.aboutUs {
+    width: 900px;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(250px);
+    animation: slideIn 2s ease 1 forwards;
+    font-family: livvic;
+    z-index: 1;
+}
+
+/* Categories Section Styling */
+
+.categoryTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.categoryTop h1 {
+    margin: 15px;
+    color: var(--goldenColor);
+}
+
+.separation {
+    height: 1px;
+    background-color: var(--goldenColor);
+    width: 90vw;
+    border-radius: 50px;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cat {
+    height: 400px;
+    width: 400px;
+    margin: 20px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-family: julius sans one;
+    gap: 20px;
+    font-size: 1.2rem;
+    font-weight: lighter;
+    overflow: hidden;
+}
+
+.cat h1 {
+    letter-spacing: 10px;
+}
+
+.catBtn {
+    height: 35px;
+    width: 100px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-family: julius sans one;
+    font-weight: 600;
+    background-color: white;
+    transition: all .3s ease;
+    transform: translateY(2500px);
+    display: none;
+}
+
+.catBtn.active {
+    transform: translateY(0px);
+    display: block;
+    transition: .2s ease;
+}
+
+/* Button Hover Effect */
+.catBtn:hover {
+    background-color: rgb(226, 226, 226);
+}
+
+.cat {
+    position: relative;
+    cursor: pointer;
+}
+
+.cat h1,
+p {
+    z-index: 2;
+}
+
+
+/* Button Hover Effect */
+
+.hBtn:hover {
+    background-color: #b87c14;
+}
+
+
+.catImg {
+    transition: .2s ease;
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    overflow: hidden;
+}
+
+/* Image Hover Effect */
+.img1 {
+    transition: .5s ease;
+}
+
+/* Image Hover Effect */
+.img2 {
+    transition: .5s ease;
+    transform: scale(250%);
+}
+
+/* Image Hover Effect */
+.img3 {
+    transition: .5s ease;
+}
+
+/* Image Hover Effect */
+.img1.active {
+    transform: scale(220%);
+    transition: .5s ease;
+}
+
+/* Image Hover Effect */
+.img2.active {
+    transform: scale(100%);
+    transition: .5s ease;
+}
+
+/* Image Hover Effect */
+.img3.active {
+    transform: scale(265%);
+    transition: .5s ease;
+}
+
+/* History Section Styling */
+
+.hCalli h1 {
+    margin: 15px;
+    color: #d09839;
+
+}
+
+.hCalli {
+    text-align: center;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Text Styling */
+
+.hCalli p {
+    font-family: livvic;
+    margin: 20px;
+    font-size: 1.2rem;
+    max-width: 1500px;
+}
+
+/* Text Styling */
+
+.hCalliTxtArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Image Styling */
+.hCalliTxtArea img {
+    margin: 25px;
+    width: 350px;
+}
+
+/* Button Styling*/
+
+.hBtn {
+    padding: 15px 30px;
+    font-family: julius sans one;
+    font-weight: bolder;
+    cursor: pointer;
+    background-color: #d09839;
+    border: none;
+    transition: .3s ease;
+    color: white;
+    outline: none;
+}
+
+/* Learn Calligraphy Section */
+
+.lCalli {
+    margin-top: 50px;
+}
+
+/* Text Styling */
+
+.lCalliVid p {
+    font-size: 1.2rem;
+}
+
+/* Text Styling */
+
+.lCalli h1 {
+    margin: 15px;
+    color: #d09839;
+    text-align: center;
+}
+
+.lCalli {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lCalliVids {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.lCalliVids h1 {
+    color: white;
+}
+
+.lCalliVid {
+    background-color: black;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.lCalliVid h1 {
+    letter-spacing: 15px;
+    z-index: 2;
+}
+
+/* Button Styling */
+
+
+.lCalliBtn {
+    padding: 10px 25px;
+    cursor: pointer;
+    letter-spacing: 5px;
+    font-family: julius sans one;
+    font-weight: bolder;
+    background-color: white;
+    transition: .3s ease;
+    border: none;
+}
+
+.lImg {
+    position: absolute;
+    height: 400px;
+    width: 400px;
+}
+
+/* Image Hover Effect */
+
+.lImg1 {
+    transition: .5s ease;
+}
+
+/* Image Hover Effect */
+
+.lImg2 {
+    transition: .5s ease;
+    transform: scale(250%);
+}
+
+/* Image Hover Effect */
+
+.lImg3 {
+    transition: .5s ease;
+}
+
+/* Image Hover Effect */
+
+.lImg1.active {
+    transform: scale(220%);
+    transition: .5s ease;
+}
+
+/* Image Hover Effect */
+
+.lImg2.active {
+    transform: scale(100%);
+    transition: .5s ease;
+}
+
+/* Image Hover Effect */
+
+.lImg3.active {
+    transform: scale(265%);
+    transition: .5s ease;
+}
+
+/* Gallery Styling */
+
+.gallery {
+    text-align: center;
+    margin: 9px 0;
+}
+
+/* Text Styling */
+.gallery h1 {
+    font-family: julius sans one;
+    font-size: 2.5rem;
+    margin: 15px;
+    color: var(--goldenColor);
+}
+
+.gImgParent {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* Image Styling */
+.gImg img {
+    height: 350px;
+    width: 350px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.gImg:hover {
+    filter: contrast(.75);
+    filter: brightness(.75);
+    transform: scale(102%);
+}
+
+.gImg {
+    position: relative;
+    transition: .3s ease;
+}
+
+.row1 {
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.row2 {
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.row3 {
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+/* Arabic Category Page Styling */
+
+.arabic {
+    text-align: center;
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.arabic h1 {
+    margin: 15px;
+    color: var(--goldenColor);
+    font-family: julius sans one;
+    letter-spacing: 5px;
+    font-size: 2.5rem;
+}
+
+.arImgParent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.arImg img {
+
+    border-radius: 10px;
+    height: 200px;
+    width: 350px;
+    height: 350px;
+    cursor: pointer;
+    transition: .3s ease;
+
+}
+
+.arImg {
+    position: relative;
+    transition: .3s ease;
+}
+
+.arImg:hover {
+    filter: contrast(.75);
+    filter: brightness(.75);
+    transform: scale(102%);
+}
+
+.arR1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.arR2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.arR3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* About Arabic Calligraphy Section */
+.aboutArCalli {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutArCalli h1 {
+    font-family: julius sans one;
+    color: var(--goldenColor);
+    margin: 15px;
+    text-align: center;
+}
+
+.aboutArCalliTxt {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 50px;
+    max-width: 800px;
+    font-family: livvic;
+    font-size: 1.3rem;
+    padding: 20px;
+}
+
+.aboutArCalliTxt li {
+    margin: 10px 0;
+}
+
+/* Greek Category Page */
+
+.greek {
+    text-align: center;
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.greek h1 {
+    margin: 15px;
+    color: var(--goldenColor);
+    font-family: julius sans one;
+    font-size: 2.5rem;
+}
+
+.grImgParent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.grImg img {
+    border-radius: 10px;
+    height: 450px;
+    width: 350px;
+    height: 350px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.grImg:hover {
+    filter: contrast(.75);
+    filter: brightness(.75);
+    transform: scale(102%);
+}
+
+.grImg {
+    position: relative;
+    transition: .3s ease;
+
+}
+
+.grR1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.grR2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.grR3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* About Greek Calligraphy Section */
+.aboutGrCalli {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutGrCalli h1 {
+    font-family: julius sans one;
+    color: var(--goldenColor);
+    margin: 15px;
+    text-align: center;
+}
+
+.aboutGrCalliTxt {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 50px;
+    max-width: 800px;
+    font-family: livvic;
+    font-size: 1.3rem;
+    padding: 20px;
+}
+
+.aboutGrCalliTxt li {
+    margin: 10px 0;
+}
+
+/* Indic Catergory Page Styling */
+.indic {
+    text-align: center;
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.indic h1 {
+    margin: 15px;
+    color: var(--goldenColor);
+    font-family: julius sans one;
+    font-size: 2.5rem;
+}
+
+.inImgParent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.inImg img {
+    border-radius: 10px;
+    height: 250px;
+    width: 400px;
+    height: 350px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.inImg:hover {
+    transform: scale(102%);
+    filter: contrast(.75);
+    filter: brightness(.75);
+}
+
+.inImg {
+    position: relative;
+    transition: .3s ease;
+
+}
+
+
+.inR1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.inR2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.inR3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* About Indic Calligraphy Section */
+.aboutInCalli {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutInCalli h1 {
+    font-family: julius sans one;
+    color: var(--goldenColor);
+    margin: 15px;
+    text-align: center;
+}
+
+.aboutInCalliTxt {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 50px;
+    max-width: 800px;
+    font-family: livvic;
+    font-size: 1.3rem;
+    padding: 20px;
+}
+
+.aboutInCalliTxt li {
+    margin: 10px 0;
+}
+
+/* Download Arrow Svg Styling */
+a .fa-solid {
+    border: none;
+    font-weight: bolder;
+    font-size: 2rem;
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    cursor: pointer;
+}
+
+/* Hamburger Display Setting */
+.off-screen-menu {
+    display: none;
+}
+
+/* Footer Styling */
+
+.footerPrnt {
+    display: flex;
+
+}
+
+
+.footer {
+    background-color: black;
+    color: white;
+    padding: 40px 20px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+    font-family: julius sans one;
+    overflow: hidden;
+}
+
+.footerUpper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.secComp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.thiComp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.thiComp h3 {
+    letter-spacing: 15px;
+    font-size: 1.5rem;
+}
+
+.thiComp a {
+    color: rgb(216, 216, 216);
+}
+
+.thiComp a:hover {
+    color: white;
+}
+
+.rowPrnt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.qRow1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 15px;
+
+}
+
+.qRow2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 15px;
+
+}
+
+.qRow3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 15px;
+
+}
+
+.forComp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.forComp i {
+    transition: .3s ease;
+}
+
+.forComp i:hover {
+    color: #d09839;
+    cursor: pointer;
+}
+
+.footerLowerPrnt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.line {
+    width: 99vw;
+}
+
+.footerLower {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+}
+
+/* About Us Page Styling */
+
+.about-us {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    gap: 25px;
+}
+
+
+.aboutUsTxt {
+    margin-top: 35px;
+    font-family: livvic;
+    font-size: 1.5rem;
+    text-align: center;
+    max-width: 1500px;
+}
+
+.heading {
+    text-align: center;
+}
+
+.heading h1 {
+    margin: 10px;
+}
+
+.aboutUsTop {
+    text-align: center;
+    font-family: julius sans one;
+    text-align: center;
+}
+
+.about-us h1 {
+    color: #d09839;
+    font-size: 2.5rem;
+    font-family: julius sans one;
+
+}
+
+.about-us h2 {
+    font-family: Judson;
+
+}
+
+.aboutUsTop h1 {
+    margin: 10px;
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.team h2 {
+    margin: 25px;
+    text-align: center;
+}
+
+.tTxt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.tTxt4 {
+    flex-direction: row-reverse;
+}
+
+.tTxt p {
+    max-width: 800px;
+    font-family: livvic;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.persona {
+    width: 150px;
+    height: 150px;
+}
+
+@media only screen and (max-width: 1440px) and (min-width: 1212px) {
+
+    /* Home Page Adjustments */
+    .image img {
+        height: 300px;
+    }
+
+    .firTxt {
+        font-size: 2rem;
+    }
+
+    .secTxt {
+        font-size: 2rem;
+        width: 425px;
+    }
+
+    .aboutUs {
+        width: 700px;
+    }
+}
+
+@media only screen and (max-width: 1212px) and (min-width: 300px) {
+
+    /* Home Page Image Display Setting */
+    .image {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 300px) {
+
+    /* Nav Tabs Display Setting*/
+    .tabs {
+        display: none;
+    }
+
+    /* Anchor Tag Styling */
+    a {
+        color: white;
+    }
+
+    /* Hamburger Menu Styling*/
+
+    .hamItm {
+        font-family: 'julius sans one';
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: rgb(219, 219, 219);
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .hamTop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        flex-direction: column;
+    }
+
+    .hamCat h3 {
+        color: white;
+        font-family: julius sans one;
+    }
+
+    .hamCat {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .hamItm::before {
+        position: absolute;
+        content: "";
+        height: 1.5px;
+        border-radius: 50px;
+        background-color: #d09839;
+        bottom: -5px;
+        left: -5px;
+        width: 110%;
+        transform: scaleX(0);
+        transition: all 0.3s ease;
+    }
+
+    .hamItm:hover::before {
+        transform: scaleX(1);
+    }
+
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* off-screen-menu */
+    .off-screen-menu {
+        background-color: rgb(0, 0, 0);
+        height: 100vh;
+        width: 40vw;
+        min-width: 250px;
+        position: fixed;
+        top: 0;
+        right: -500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 1.5rem;
+        transition: .5s ease;
+        gap: 35px;
+        z-index: 4;
+    }
+
+    .off-screen-menu.active {
+        right: 0;
+    }
+
+    /* nav */
+    nav {
+        padding: 1rem;
+        display: flex;
+    }
+
+    /* ham menu */
+    .ham-menu {
+        height: 40px;
+        width: 30px;
+        margin-left: auto;
+        position: relative;
+        cursor: pointer;
+        z-index: 2;
+        top: 10px;
+    }
+
+    .ham-menu:active {
+        transform: scale(120%);
+    }
+
+    .ham-menu span {
+        height: 4px;
+        width: 100%;
+        background-color: white;
+        border-radius: 25px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: .3s ease;
+    }
+
+    .ham-menu span:nth-child(1) {
+        top: 25%;
+    }
+
+    .ham-menu span:nth-child(3) {
+        top: 2%;
+    }
+
+    .ham-menu.active span {
+        background-color: white;
+    }
+
+    .ham-menu.active span:nth-child(1) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .ham-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .ham-menu.active span:nth-child(3) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 300px) {
+
+    /* Footer Adjustment  */
+    .rowPrnt {
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+    }
+
+    .thiComp h3 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    /* Toast Box Adjustment */
+    #toastBox {
+        top: 50%;
+        right: 0%;
+    }
+}
+
+@media only screen and (max-width: 950px) and (min-width: 300px) {
+
+    /* Further Adjustment of Home Page */
+
+    .aboutUs {
+        width: 500px;
+        font-size: .75rem;
+    }
+
+    .firTxt {
+        font-size: 1.5rem;
+    }
+
+    .secTxt {
+        font-size: 1.5rem;
+        width: 340px;
+    }
+
+    .logo {
+        font-size: 1.75rem;
+    }
+
+    /* About Greek Calligraphy Section Adjutment */
+    .aboutGrCalliTxt {
+        width: 400px;
+    }
+
+    /* About Indic Calligraphy Section Adjutment */
+    .aboutInCalliTxt {
+        width: 400px;
+    }
+
+    /* About Arabic Calligraphy Section Adjutment */
+    .aboutArCalliTxt {
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 715px) and (min-width: 300px) {
+
+    /* Footer Adjustment */
+
+    .footerLower {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .footerUpper {
+        flex-direction: column;
+        gap: 50px;
+    }
+}
+
+@media only screen and (max-width: 530px) and (min-width: 300px) {
+
+    /* Category Section Adjustment */
+    .cat {
+        height: 250px;
+        width: 250px;
+    }
+
+    /* Learn Calligraphy Section Adjustment */
+    .lCalliVid {
+        height: 250px;
+        width: 250px;
+
+    }
+
+    /* About Us Section Adjustment */
+    .aboutUs {
+        width: 300px;
+    }
+
+    /* Arabic Section Adjustment */
+    .arImg img {
+        width: 200px;
+        height: 200px;
+
+    }
+
+    /* Greek Section Adjustment */
+    .grImg img {
+        width: 200px;
+        height: 200px;
+
+    }
+
+    /* Indic Section Adjustment */
+    .inImg img {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* Gallery Section Adjustment */
+    .gImg img {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* About Us Team Section Adjustment */
+    .tTxt {
+        flex-direction: column;
+    }
+
+    .tTxt2 {
+        flex-direction: column-reverse;
+    }
+
+    .tTxt p {
+        width: 250px;
+    }
+
+    /* History Section Adjustment */
+    .hCalliTxtArea img {
+        width: 250px;
+    }
+
+    /* About Greek Calligraphy Section Adjutment */
+    .aboutGrCalliTxt {
+        width: 300px;
+    }
+
+    /* About Indic Calligraphy Section Adjutment */
+    .aboutInCalliTxt {
+        width: 300px;
+    }
+
+    /* About Arabic Calligraphy Section Adjutment */
+    .aboutArCalliTxt {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 375px) and (min-width: 300px) {
+
+    /* Home Section Top Text Adjustment */
+    .firTxt {
+        font-size: 1.2rem;
+    }
+
+    .secTxt {
+        font-size: 1.2rem;
+        width: 285px;
+        border-right: 2px solid black;
+    }
+
+    /* Footer Adjustment  */
+    .fifComp .hTxt {
+        font-size: .8rem;
+    }
+
+    .fifComp span {
+        font-size: .8rem;
+
+    }
+
+    .forComp h3 {
+        font-size: 1rem;
+    }
+}
